@@ -41,31 +41,30 @@ Rotation_Direction :: enum u32 {
     CCW;
 };
 
-one_sixth_turn := 1.0 / 6.0;
-one_third_turn := 1.0 / 3.0;
-one_half_turn := 0.5;
-two_thirds_turn := 2.0 / 3.0;
-five_sixths_turn := 5.0 / 6.0;
+ONE_SIXTH_TURN :: 1.0 / 6.0;
+ONE_THIRD_TURN :: 1.0 / 3.0;
+ONE_HALF_TURN :: 0.5;
+TWO_THIRDS_TURN :: 2.0 / 3.0;
+FIVE_SIXTHS_TURN :: 5.0 / 6.0;
 
-one_eighth_turn := 1.0 / 8.0;
-three_eighths_turn := 3.0 / 8.0;
-five_eighths_turn := 5.0 / 8.0;
-seven_eighths_turn := 7.0 / 8.0;
+ONE_EIGHTH_TURN :: 1.0 / 8.0;
+THREE_EIGHTHS_TURN :: 3.0 / 8.0;
+FIVE_EIGHTHS_TURN :: 5.0 / 8.0;
+SEVEN_EIGHTHS_TURN :: 7.0 / 8.0;
 
-one_quarter_turn := 1.0 / 4.0;
-three_quarters_turn := 3.0 / 4.0;
+ONE_QUARTER_TURN :: 1.0 / 4.0;
+THREE_QUARTERS_TURN :: 3.0 / 4.0;
 
-full_turn := 1.0;
+FULL_TURN :: 1.0;
 
 turns_to_radians :: (turns : float) -> float { return turns * TAU; };
 radians_to_turns :: (radians : float) -> float { return radians / TAU; };
 turns_to_degrees :: (turns : float) -> float { return turns * 360; };
 degrees_to_turns :: (degrees : float) -> float { return degrees / 360; };
 
-// ^ hey that alignment 'turned' out pretty nice
-
 cos_turns :: (turns : float) -> float { return cos(turns_to_radians(turns)); }
 sin_turns :: (turns : float) -> float { return sin(turns_to_radians(turns)); }
+tan_turns :: (turns : float) -> float { return tan(turns_to_radians(turns)); }
 
 angle_to_unit_vector :: (t: float) -> Vector2 { return .{cos_turns(t), sin_turns(t)}; }
 
